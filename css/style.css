@@ -413,7 +413,15 @@ bottom: -30px;
 .text-center img {
 margin: auto;
 }
-.aboutUs{padding: 50px 0 0;background: #F5F5F5;/* color: #fff; */}
+.aboutUs {
+	padding: 50px 0 0;
+	background: #F5F5F5;
+}
+
+.aboutUse {
+	padding: 0 0 0;
+	background: #ffffff;
+}
 img.img-center {
 margin: 0 auto;
 display: block;

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>狗狗大联盟--联系我们</title>
 	<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″ />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 
@@ -13,6 +13,7 @@
 	<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
 
 	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/mapCss.css" rel="stylesheet">
 
 </head>
 <body oncontextmenu=self.event.returnValue=false onselectstart="return false">
@@ -77,11 +78,15 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="row">
+					<div id="container"></div>
+				</div>
 			</div>
 		</section>
 
 		<!--尾部footer-->
-		<div id="footer" style="bottom: 0"></div>
+		<div id="footer"></div>
 
 	</div>
 	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
@@ -98,11 +103,35 @@
 	<script src="js/custom.js"></script>
 	<script src="js/validate.js"></script>
 	<script src="js/owl-carousel/owl.carousel.js"></script>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.7&key=a0578ec9067663902658c9f63fb4c388"></script>
+	<!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
 	<script>
 		$(function () {
 			$('#warning').load('nav.html');
 			$('#footer').load('footer.html');
-		})
+		});
+
+
+	</script>
+
+	<script>
+        var map = new AMap.Map('container', {
+            resizeEnable: true,
+            center: [120.418194, 31.239738],
+            zoom: 13
+        });
+        var marker = new AMap.Marker({
+            position: map.getCenter()
+        });
+        marker.setMap(map);
+        // 设置鼠标划过点标记显示的文字提示
+        marker.setTitle('狗仔的家');
+
+        // 设置label标签
+        marker.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+            offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+            content: "狗狗大联盟基地"
+        });
 	</script>
 </body>
 </html>
